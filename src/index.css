@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    font-family: 'Nunito Sans', sans-serif;
+
+    --color-text: hsl(200, 15%, 8%);
+    --color-background: hsl(0, 0%, 98%);
+    --color-input: hsl(0, 0%, 52%);
+    --color-elements: hsl(0, 0%, 100%);
+  }
+
+
+
+
+  /* Josh Comeau CSS Reset*/
+
+  /*
+  1. Use a more-intuitive box-sizing model.
+*/
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html,
+  body {
+    min-height: 100vh;
+  }
+
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /*
+    6. Improve media defaults
+  */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /*
+    7. Remove built-in form typography styles
+  */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+
+@layer components {
+
+  .dark {
+    --color-text: hsl(0, 0%, 100%);
+    --color-background: hsl(207, 26%, 17%);
+    --color-input: hsl(0, 0%, 100%);
+    --color-elements: hsl(209, 23%, 22%);
+  }
+}
