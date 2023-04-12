@@ -2,7 +2,7 @@
 
 const CountryCard = ({country}) => {
   return (
-    <div className="bg-secondary w-[16.5rem] relative grid gap-6 rounded-[5px] overflow-hidden cursor-pointer transition transform hover:scale-105 ease-out duration-300">
+    <div className="bg-secondary w-[16.5rem] relative grid gap-6 rounded-[5px] overflow-hidden cursor-pointer transition-transform hover:scale-105 ease-out duration-300">
         <img src={country.flags.png} alt={country.name.official} className="w-full h-[164px]" />
         <div className="grid gap-4 px-6 pb-[2.875rem]">
             <h2 className="text-primary text-lg/[1.625rem] font-extrabold">{country.name.official}</h2>
