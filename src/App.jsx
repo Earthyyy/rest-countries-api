@@ -1,31 +1,48 @@
 import { Route, Routes } from "react-router-dom"
 import { Country, Home, Navbar } from "./components"
-import { useState } from "react"
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { setCountries } from "./features/countriesSlice/countriesSlice";
+import { setTheme } from "./features/themeSlice/themeSlice";
 
-const queryClient = new QueryClient();
+
+
 
 function App() {
-  const [theme, setTheme] = useState("");
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let T = localStorage.getItem("theme");
+    if (T === null) {
+      localStorage.setItem("theme", "")
+    } else {
+      dispatch(setTheme(T))
+    }
+
+
+    fetch("https://restcountries.com/v3.1/all")
+      .then(res => res.json())
+      .then(data => {
+        dispatch(setCountries(data))
+      })
+  }, [])
+
+
+
+
+
+  const theme = useSelector(state => state.theme.value);
   return (
-    <div className={`App ${theme}`}>
-      <Navbar theme={{
-        theme,
-        setTheme
-      }}/>
+    <div className={`App ${theme} bg-primary min-h-screen`}>
+      <Navbar />
 
-      <QueryClientProvider client={queryClient}>
       <main className="bg-primary transition-colors duration-400 ease-out">
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/:country" element={<Country/>} /> 
+          <Route path="/country/:cca3" element={<Country/>} /> 
         </Routes>
       </main>
-      </QueryClientProvider>
 
     </div>
   )

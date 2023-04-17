@@ -1,7 +1,6 @@
 
 import Filter from './Filter'
 import SearchBar from './SearchBar'
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
 const SearchFilter = () => {
   return (

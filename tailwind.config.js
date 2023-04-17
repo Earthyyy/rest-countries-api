@@ -7,7 +7,7 @@ export default {
   theme: {
     screens: {
       mobile: "375px",
-      desktop: "1440px",
+      desktop: "1080px",
     },
     extend: {
       colors: {
@@ -17,6 +17,21 @@ export default {
       backgroundColor: {
         primary: 'var(--color-background)',
         secondary: 'var(--color-elements)',
+      },
+      keyframes: {
+        'fade-in-down': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(4px)',
+          },
+        },
+      },
+      animation: {
+        'fade-in-down': 'fade-in-down 150ms linear forwards',
       },
     },
   },
